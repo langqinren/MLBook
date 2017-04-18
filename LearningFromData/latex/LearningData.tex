@@ -1,0 +1,157 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Arsclassica Article
+% LaTeX Template
+% Version 1.1 (10/6/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Lorenzo Pantieri (http://www.lorenzopantieri.net) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+10pt, % Main document font size
+a4paper, % Paper type, use 'letterpaper' for US Letter paper
+oneside, % One page layout (no page indentation)
+%twoside, % Two page layout (page indentation for binding and different headers)
+headinclude,footinclude, % Extra spacing for the header and footer
+BCOR5mm, % Binding correction
+]{scrartcl}
+
+\input{structure.tex} % Include the structure.tex file which specified the document structure and layout
+
+\hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
+
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR(S)
+%----------------------------------------------------------------------------------------
+
+\title{\normalfont\spacedallcaps{Learing From Data}} % The article title
+
+\author{\spacedlowsmallcaps{Xiaomo Liu}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
+
+\date{} % An optional date to appear under the author(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	HEADERS
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\sectionmark}[1]{\markright{\spacedlowsmallcaps{#1}}} % The header for all pages (oneside) or for even pages (twoside)
+%\renewcommand{\subsectionmark}[1]{\markright{\thesubsection~#1}} % Uncomment when using the twoside option - this modifies the header on odd pages
+\lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}} % The header style
+
+\pagestyle{scrheadings} % Enable the headers specified in this block
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LISTS OF FIGURES AND TABLES
+%----------------------------------------------------------------------------------------
+
+\maketitle % Print the title/author/date block
+
+\setcounter{tocdepth}{2} % Set the depth of the table of contents to show sections and subsections only
+
+\tableofcontents % Print the table of contents
+
+\listoffigures % Print the list of figures
+
+\listoftables % Print the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\section*{Abstract} % This section will not appear in the table of contents due to the star (\section*)
+
+\lipsum[1] % Dummy text
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR AFFILIATIONS
+%----------------------------------------------------------------------------------------
+
+{\let\thefootnote\relax\footnotetext{* \textit{Department of Biology, University of Examples, London, United Kingdom}}}
+
+{\let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{Department of Chemistry, University of Examples, London, United Kingdom}}}
+
+%----------------------------------------------------------------------------------------
+
+\newpage % Start the article content on the second page, remove this if you have a longer abstract that goes onto the second page
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\section{Perceptron Algorithm}
+The perceptron algorithm is the most simple learning algorithm for classification problem. It works as follows
+\begin{equation}
+	h(x) = \mbox{sign} \left( \left(  \sum_{i=1}^{d}w_{i}x_{i} \right) + b \right)  
+\end{equation}
+where $w_{i}$ is the weight for feature $x_{i}$ and $b$ is a bias term. We can easily rewrite it in terms of linear algebra. We will treat bias $b$ as a constant weight $w_{0} = b$. With this convention $\mathbf{w}^{T} \mathbf{x}=\sum_{i=0}^{d} w_{i}x_{i}$. From this notation, it looks like there is no difference between weights and bias in perceptron model. A natural question is that if weight and bias are similar, why we even borther to introduce both weight and bias? 
+
+\section{Logistic Regression}
+The logistic regression utitilizes logistic function. 
+
+\begin{equation}
+	f(x) = \frac{L}{1 + e^{-k(x-x_{0})}}
+\end{equation}
+where $L$ defines the curve's maximum value and $k$ specifies steepness of the curve and $x_{0}$ is the centre of the curve. Sigmoid function is a special case of logistic function. The logistic regression is also a classification algorithm.
+
+To answer this question, let take a look at the property of sigmoid function in Figure \ref{fig:sigmoid} and \ref{fig:sigmoid2}. In a nutshell, the weight $w$ controls its steepness of sigmoid functions and bias $b$ enables to shift the entire curve to left and right. Let take back and take glimpse at its properity.
+
+\begin{itemize}
+\item Sigmoid has a nearly linear range around its centre 0 and becomes non-linear at two ends.
+\item Sigmoid has finite limits at negative infinity and infinity, most often going either from 0 to 1 or from -1 to 1 depending on convention.
+\item Sigmoid can model many natural processes, such as those of complex system learning curves, exhibit a progression from small beginings that accelebrates and approaches a climax over time.
+
+\item Sigmoid is differeniable. Its derivative is $\frac{1}{dx} y = y (1-y)$.
+\end{itemize}
+
+  
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/sigmoid.pdf}
+\caption{Sigmoid function with a single variant $x$, various choice of parameter $w$.}
+\label{fig:sigmoid}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/sigmoid2.pdf}
+\caption{Sigmoid function with a single variant $x$, various choice of bias $b$.}
+\label{fig:sigmoid2}
+\end{figure}
+
+
+The key difference between 
+
+\section{Methods}
+
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\refname}{\spacedlowsmallcaps{References}} % For modifying the bibliography heading
+
+\bibliographystyle{unsrt}
+
+\bibliography{sample.bib} % The file containing the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
