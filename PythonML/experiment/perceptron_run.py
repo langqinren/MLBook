@@ -9,11 +9,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics         import accuracy_score
 from classifiers.perceptron  import Perceptron
 #from sklearn.linear_model import Perceptron
+#from sklearn.linear_model import LogisticRegression
 
 
 # load training & testing data
 iris = datasets.load_iris()
-X    = iris.data[:, [0,2]]
+X    = iris.data[:, [2,3]]
 Y    = iris.target
 #Y    = np.where(Y == 0, -1, 1)
 
@@ -21,14 +22,13 @@ sc = StandardScaler()
 sc.fit(X)
 X = sc.transform(X)
 
-
 # split training & testing data
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3, random_state=0)
 
 # normalization feature
 
 # training
-ppn = Perceptron()
+ppn = Perceptron(C=1.0, random_state=2)
 ppn.fit(X_train, Y_train)
 
 

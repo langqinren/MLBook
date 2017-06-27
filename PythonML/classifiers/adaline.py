@@ -1,18 +1,30 @@
 __author__ = 'Shawn'
 
-class AdaLineGD:
+from classifiers.classifier import Classifier
 
-    def fit(self, X, Y):
+class AdaLineGD(Classifier):
+
+    """
+    """
+    def _fit_binary(self, X, Y):
+        return 0
+
+    """
+    """
+    def _predict_binary(self, Y, w):
         return 0
 
 
-    def predict(self, X):
+
+
+class AdaLineSGD(Classifier):
+    """
+    """
+    def _fit_binary(self, X, Y):
         return 0
 
-
-
-class AdaLineSGD:
-
-    def fit(self, X, Y):
+    """
+    """
+    def _predict_binary(self, Y, w):
         return 0
 
